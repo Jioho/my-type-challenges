@@ -2,6 +2,12 @@
 
 // any 如何判断？
 // (<V>() => V extends First ? 1 : 0) extends <V>() => V extends U ? 1 : 0 ？ 什么写法
+// equal 写法
+// export type Equal<X, Y> =
+//   (<T>() => T extends X ? 1 : 2) extends
+//   (<T>() => T extends Y ? 1 : 2) ? true : false
+
+
 type IndexOf<T extends unknown[], U extends unknown, Count extends 1[] = []> = T extends [infer First, ...infer Rest]
   ? (<V>() => V extends First ? 1 : 0) extends <V>() => V extends U ? 1 : 0
     ? Count['length']
