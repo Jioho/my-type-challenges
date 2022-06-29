@@ -2,6 +2,7 @@ import { IPropsRules } from './utils/getArgv/interface'
 import getArgv from './utils/getArgv'
 import path from 'path'
 import fs from 'fs'
+import child from 'child_process'
 
 const argvsRule: IPropsRules[] = [
   {
@@ -102,6 +103,7 @@ function copyQuestion(entry: string, output: string, files = ['README.zh-CN.md',
     } else if (fs.existsSync(path.join(entry, item))) {
       fs.copyFileSync(path.join(entry, item), itemPath)
     }
+    child.exec('code ' + itemPath)
   })
   console.log('复制完成:' + output)
 }
