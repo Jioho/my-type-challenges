@@ -2,7 +2,8 @@
 
 type AllCombinations<S extends string, U extends string = StringToUnion<S>, P extends string = U> =
   | U
-  | (P extends any ? `${P}${AllCombinations<S, U extends P ? never : U>}` : never)
+  | (P extends any ? `${P}${AllCombinations<S, U extends P ? never : U>}` : never) | ''
+
 
 // type StringToUnion<T extends string> = T extends `${infer First}${infer Rest}` ? First | StringToUnion<Rest> : T
 
@@ -11,3 +12,5 @@ type AllCombinations<S extends string, U extends string = StringToUnion<S>, P ex
 // }
 
 // console.log(AllCombinations('ABCD'))
+
+type testAllCombinations = AllCombinations<'ABC'>

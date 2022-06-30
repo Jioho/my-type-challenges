@@ -24,3 +24,5 @@ type cases = [
   Expect<Equal<PartialByKeys<User, 'name' | 'age'>, UserPartialNameAndAge>>,
   Expect<Equal<PartialByKeys<User>, Partial<User>>>,
 ]
+
+type testPartialByKeys = PartialByKeys<User, 'name'>
