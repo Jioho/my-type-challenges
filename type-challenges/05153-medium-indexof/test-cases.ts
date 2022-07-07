@@ -9,4 +9,6 @@ type cases = [
   Expect<Equal<IndexOf1<[string, 1, number, 'a', any], any>, 4>>
 ]
 
-type testIndexOf1 = IndexOf1<[2, 6, 3, 8, 4, 1, 7, 3, 9], 3>
+type testIndexOf1 = IndexOf1<[string, 1, number, 'a', any], any>
+
+type testIndexOf12 = IndexOf1<[1, 2, 3], 2>
