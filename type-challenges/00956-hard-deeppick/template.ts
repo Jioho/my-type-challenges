@@ -12,7 +12,7 @@ type DeepPick<T, U, K = UnionToTuple<U>> = K extends [infer First, ...infer Rest
   : unknown
 
 // https://github.com/type-challenges/type-challenges/issues/4043
-// 重点 UnionToIntersection 技巧
+// 重点 琢磨 UnionToIntersection 技巧
 
 type Obj = {
   a: number
