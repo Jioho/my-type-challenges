@@ -1,1 +1,1 @@
-type FlipArguments1<T> = T extends (..._: infer args) => infer R ? (...arg0: Reverse<args>) => R : T
+type FlipArguments1<T> = T extends (...infer: infer args) => infer R ? (..._: Reverse<args>) => R : T
