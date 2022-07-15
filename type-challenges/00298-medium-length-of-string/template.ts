@@ -4,4 +4,4 @@
  * 正确还是使用递归和infer 拆成数组，在使用。length
  */
 
-type LengthOfString<S extends string, Arr extends unknown[]> = S extends `${infer F}${infer R}` ? LengthOfString<R, [F, ...Arr]> : Arr['length']
+type LengthOfString<S extends string, Arr extends unknown[] = []> = S extends `${infer F}${infer R}` ? LengthOfString<R, [F, ...Arr]> : Arr['length']

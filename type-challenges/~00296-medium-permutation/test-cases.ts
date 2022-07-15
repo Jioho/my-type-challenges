@@ -6,3 +6,5 @@ type cases = [
   Expect<Equal<Permutation<'B' | 'A' | 'C'>, ['A', 'B', 'C'] | ['A', 'C', 'B'] | ['B', 'A', 'C'] | ['B', 'C', 'A'] | ['C', 'A', 'B'] | ['C', 'B', 'A']>>,
   Expect<Equal<Permutation<never>, []>>,
 ]
+
+type TestPermutation = Permutation<'A' | 'B' | 'C'>
