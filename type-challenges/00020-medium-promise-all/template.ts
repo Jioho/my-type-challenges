@@ -11,17 +11,34 @@ declare function PromiseAll1<T extends any[]>(values: readonly [...T]): Promise<
 declare function PromiseAll1<T extends any[]>(values: readonly [...T]): Promise<PromiseRes<T>>
 
 // type PromiseRes<T extends any[], R extends any[] = []> = T extends [infer F, ...infer Rest] ? PromiseRes<Rest, [...R, F extends Promise<infer A> ? A : F]> : R
-type PromiseRes<T extends any[]> = keyof T
+type PromiseRes<T extends any[]> = keyof []
 
 type TestPromiseRes = PromiseRes<[1, 2, number]>
 
-var arr: TestPromiseRes = [1, 2, 3]
+var arr: TestPromiseRes = 'lastIndexOf'
 
 type linkArr = {
   0: 'Jioho'
   1: 'Promise'
 }
 
-type Arr = ['Jioho', 'Promise']
 
-type IsArray = Pick<linkArr, 0 | 1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var aKeys:ArrKeys = ''
+type Arr = ['Jioho', 'Promise']
+type ArrKeys = keyof Arr
+

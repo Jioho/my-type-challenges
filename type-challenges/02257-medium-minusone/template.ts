@@ -2,12 +2,14 @@
 
 type MinusOne1<T extends number> = CountToT<`${T}`> extends [...infer M1, 1] ? M1['length'] : 0
 
-type Minus<T extends number, T1 extends number> = CountToT<`${T}`> extends [...infer M1, ...CountToT<`${T1}`>] ? M1['length'] : 0
+type Minus<T extends number | string, M extends number | string, TA extends 1[] = CountToT<`${T}`>,MA extends 1[] = CountToT<`${M}`>> =
+  TA extends [...infer M1, ...MA] ? M1['length'] : MA extends [...infer M2,...TA] ? `-${M2['length']}` : 0
+
 
 // 重点 用于生成数组，避免死循环！
 // 核心，先算出了10位的，在拼个位，以此类推  比如 15 传入后，1 先被计算，得到 [1] 然后在计算5，第二次传入的时候1就会被 [...T*10]放大10倍
 // 相对来说，千位数对百位数升级，也是放大10倍，非常秒！！
-type CountToT<T extends string, Count extends 1[] = []> = T extends `${infer First}${infer Rest}` ? CountToT<Rest, N<Count>[keyof N & First]> : Count
+type CountToT<T extends string , Count extends 1[] = []> = T extends `${infer First}${infer Rest}` ? CountToT<Rest, N<Count>[keyof N & First]> : Count
 
 type N<T extends 1[] = []> = {
   '0': [...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T]
